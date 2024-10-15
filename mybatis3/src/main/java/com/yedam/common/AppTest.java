@@ -35,7 +35,7 @@ public class AppTest {
 //			sqlSession.commit();
 //		}
 		
-		//삭제
+		// 삭제
 		Member mbr2 = new Member();
 		mbr2.setMemberid("test99");
 		if(dao.deleteMember(mbr2.getMemberid()) == 1) {
