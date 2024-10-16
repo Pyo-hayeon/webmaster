@@ -8,7 +8,7 @@ import com.yedam.vo.MemberVO;
 //인터페이스 기능정의
 //구현클래스 기능실행
 public interface MemberMapper {
-	public List<Member> members();
+	public List<MemberVO> members();
 	public int insertMember(MemberVO member);
 	public int updateMember(MemberVO member);
 	public int deleteMember(String memberId);

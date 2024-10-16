@@ -1,6 +1,7 @@
 package com.yedam.service;
 
-import org.apache.ibatis.binding.MapperMethod;
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 
 import com.yedam.common.DataSource;
@@ -24,6 +25,11 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public boolean retireMember(String memberId) {
 		return mapper.deleteMember(memberId) == 1;
+	}
+
+	@Override
+	public List<MemberVO> memberList() {
+		return mapper.members();
 	}
 
 }
