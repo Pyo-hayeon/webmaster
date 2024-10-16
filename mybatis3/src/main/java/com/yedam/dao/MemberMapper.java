@@ -11,4 +11,5 @@ public interface MemberMapper {
 	public int insertMember(Member member);
 	public int updateMember(Member member);
 	public int deleteMember(String memberid);
+	public Member selectMember(String member_id);	//단건조회 기능추가
 }

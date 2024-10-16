@@ -32,4 +32,16 @@
 		delete from tbl_member
 		where member_id = #{memberid}
 	</delete>
+	<!-- 인터페이스에 있는 selectMember메소드 구현하는거고 파라메터 스트링으로 받고  -->
+	<select id="selectMember" parameterType="string" resultType="com.yedam.vo.Member">
+		select member_id
+				,member_name
+				,password
+				,phone
+				,responsibility
+				,creation_date
+		from tbl_member
+		where member_id = #{memberid}
+	</select>
+	
 </mapper>

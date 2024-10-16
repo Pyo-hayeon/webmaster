@@ -16,6 +16,13 @@ import com.yedam.common.DataSource;
 import com.yedam.dao.MemberMapper;
 import com.yedam.vo.Member;
 
+//@WebServlet("/MemberListServlet")이게 제일 중요함 여기로 요청 들어오면 기능이 실행된다
+//이게 경로임 html/MemberListServlet 이라고 적으면 위치가 저기로 바뀜
+
+//IOC (제어의 역전) 이라고 함
+//반드시 HttpServlet 기능을 상속받아야함
+//객체 생성하고 -> inti() -> service() -> 서버가 종료되면 -> destroy() : 서블릿의 생명주기 
+//를 순서대로 실행 톰캣이 자체적으로
 @WebServlet("/MemberListServlet")
 public class MemberListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -27,23 +34,22 @@ public class MemberListServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html;charset=utf-8");
-		PrintWriter out = response.getWriter();
-		out.print("<h1>회원 목록</h1>");
+		
+		String str = "<h3>회원정보</h3>";
+		str +="<table border='1'><tbody>";
+		str +="<thead><tr><th>회원아이디</th><th>회원명</th><th>연락처</th></tr></thead>";
+		
 		SqlSession sqlSession = DataSource.getInstance().openSession(true);	//자동커밋
 		MemberMapper dao = sqlSession.getMapper(MemberMapper.class);
 		List<Member> result = dao.members(); 
-		out.print("<ul>");
 		for(Member mb : result) {
-			out.print("<li>");
-			out.print("ID : "+mb.getMemberid());
-			out.print(" | PW : "+mb.getPassword());
-			out.print(" | 이름 : "+mb.getMemberName());
-			out.print(" | 연락처 : "+mb.getPhone());
-			out.print(" | 권한 : "+mb.getResponsibility());
-			out.print(" | 가입일 : "+mb.getCreationDate());
-			out.print("</li>");
+			str += "<tr><td><a href='member.action?mid="+mb.getMemberid()+"'>"+mb.getMemberid();
+			str += "</a></td><td>"+mb.getMemberName();
+			str += "</td><td>"+mb.getPhone() + "</td></tr>";
 		}
-		out.print("</ul>");
+		str += "</tbody></table>";
+		str += "<h3><a href='./'>처음으로<a></h3>";
+		response.getWriter().print(str);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
