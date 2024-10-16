@@ -21,9 +21,10 @@ public class MemberListControl implements Control {
 		req.setAttribute("memberList", list);
 		
 		try {
-			//memberList.do 요청재지정 => memberList.jsp
+			//jsp폴더 만들어서 거기에 파일 넣었음
+			//memberList.do 요청재지정 => jsp/memberList.jsp
 			//요청 재지정 (요청페이지를 다른곳으로 바꿈)
-			req.getRequestDispatcher("memberList.jsp").forward(req, resp);
+			req.getRequestDispatcher("WEB-INF/jsp/memberList.jsp").forward(req, resp);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
