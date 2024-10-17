@@ -24,7 +24,7 @@
 		    from (
 		        select *
 		        from tbl_board
-		        order by board_no asc
+		        order by board_no desc
 		        ) a
 		    ) b
 		where b.rn > (#{page} - 1 ) * 5
