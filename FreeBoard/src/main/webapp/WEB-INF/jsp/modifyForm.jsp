@@ -12,6 +12,8 @@
 	String sc = (String) request.getAttribute("searchCondition");
 	String kw = (String) request.getAttribute("keyword");
 	kw = kw == null ? "" : kw;
+	//세션추가
+	String logId = (String) session.getAttribute("logId");
 %>
 <% if(msg != null) { %>
 <p style="color: red;"><%=msg %></p>
@@ -43,7 +45,7 @@
 		</tr>
 		<tr>
 			<td colspan="4" align="center" >
-				<input type="submit" class="btn btn-success" value="저장">
+				<input type="submit" class="btn btn-success" <%=( logId != null && logId.equals(board.getWriter()) ) ? "" : "disabled" %> value="저장">
 				<input type="reset" class="btn btn-warning" value="취소">
 			</td>
 		</tr>

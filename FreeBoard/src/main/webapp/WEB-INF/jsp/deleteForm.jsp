@@ -7,6 +7,7 @@
 <%
 	String msg = (String) request.getAttribute("msg");
 	BoardVO board = (BoardVO) request.getAttribute("boardvo");
+	String logId = (String) session.getAttribute("logId");
 %>
 <% if(msg != null) { %>
 <p style="color: red;"><%=msg %></p>
@@ -35,7 +36,7 @@
 		</tr>
 		<tr>
 			<td colspan="4" align="center" >
-				<input type="submit" class="btn btn-danger" value="삭제">
+				<input type="submit" class="btn btn-danger" <%=( logId != null && logId.equals(board.getWriter()) ) ? "" : "disabled" %> value="삭제">
 				<input type="reset" class="btn btn-success" value="취소">
 			</td>
 		</tr>

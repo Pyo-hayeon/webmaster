@@ -29,7 +29,7 @@
                     <% if(logId == null) { %>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="loginForm.do">로그인 페이지</a>
                     <% }else{ %>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="logOut.do">로그아웃</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="logOut.do">로그아웃(<%=logId %>)</a>
                     <% } %>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">statu</a>
                 </div>
