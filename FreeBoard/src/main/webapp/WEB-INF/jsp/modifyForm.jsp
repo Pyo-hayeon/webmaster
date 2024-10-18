@@ -8,6 +8,10 @@
 	String msg = (String) request.getAttribute("msg");
 	BoardVO board = (BoardVO) request.getAttribute("boardvo");
 	String pg = (String) request.getAttribute("page");
+	//검색 데이터 받아오기
+	String sc = (String) request.getAttribute("searchCondition");
+	String kw = (String) request.getAttribute("keyword");
+	kw = kw == null ? "" : kw;
 %>
 <% if(msg != null) { %>
 <p style="color: red;"><%=msg %></p>
@@ -16,6 +20,8 @@
 <form action="modifyBoard.do" method="post">
 	<input type="hidden" value="<%=board.getBoardNo() %>" id="bno" name="bno">
 	<input type="hidden" value="<%=pg %>" id="page" name="page">
+	<input type="hidden" value="<%=sc %>" id="searchCondition" name="searchCondition">
+	<input type="hidden" value="<%=kw %>" id="keyword" name="keyword">
 	<table class="table">
 		<tr>
 			<th>글번호</th><td><%=board.getBoardNo() %></td>

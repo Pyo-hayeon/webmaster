@@ -10,9 +10,15 @@
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd HH:mm:ss");
 	String wdate = sdf.format(bvo.getWriteDate());
 	String pg = (String) request.getAttribute("page");
+	//검색 데이터 받아오기
+	String sc = (String) request.getAttribute("searchCondition");
+	String kw = (String) request.getAttribute("keyword");
+	kw = kw == null ? "" : kw;
 %>
 <form action="modifyBoard.do" method="get">
 	<input type="hidden" value="<%=bvo.getBoardNo() %>" id="bno" name="bno">
+	<input type="hidden" value="<%=sc %>" id="searchCondition" name="searchCondition">
+	<input type="hidden" value="<%=kw %>" id="keyword" name="keyword">
 	<table class="table">
 		<tr>
 			<th>글번호</th><td><%=bvo.getBoardNo() %></td>
@@ -49,7 +55,7 @@
 <script>
 	document.querySelector('input[value="수정"]')//
 	.addEventListener('click', function(e) {
-		location.href = 'modifyBoard.do?page=<%=pg %>&bno=<%=bvo.getBoardNo() %>';
+		location.href = 'modifyBoard.do?page=<%=pg %>&bno=<%=bvo.getBoardNo() %>&searchCondition=<%=sc %>&keyword=<%=kw %>';
 	});
 	document.querySelector('input[value="삭제"]')//
 	.addEventListener('click', function(e) {

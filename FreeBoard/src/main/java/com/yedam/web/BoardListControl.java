@@ -18,6 +18,7 @@ public class BoardListControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		req.setCharacterEncoding("utf-8");
 		//글 목록 보여주기. 조회 후 jsp 전달.
 		//http://localhost/FreeBoard/boardlist.do?page=1
 		String page = req.getParameter("page");

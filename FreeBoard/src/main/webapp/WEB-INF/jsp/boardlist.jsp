@@ -17,19 +17,20 @@
 	//검색 데이터 받아오기
 	String sc = (String) request.getAttribute("searchCondition");
 	String kw = (String) request.getAttribute("keyword");
+	kw = kw == null ? "" : kw;
 %>
 <!-- 검색조건 넣기 -->
 <form action="boardlist.do" class="row g-3">
   <div class="col-md-3">
     <select name="searchCondition" class="form-select">
       <option selected value="">선택하세요.</option>
-      <option value="T">제목</option>
-      <option value="W">작성자</option>
-      <option value="TW">제목 & 작성자</option>
+      <option value="T" <%=(sc != null && sc.equals("T") ? "selected" : "") %>>제목</option>
+      <option value="W" <%=(sc != null && sc.equals("W") ? "selected" : "") %>>작성자</option>
+      <option value="TW" <%=(sc != null && sc.equals("WT") ? "selected" : "") %>>제목 & 작성자</option>
     </select>
   </div>
   <div class="col-md-4">
-    <input type="text" class="form-control" name="keyword">
+    <input type="text" class="form-control" name="keyword" value='<%=kw %>'>
   </div>
   <div class="col-md-5">
     <button type="submit" class="btn btn-primary">조 회</button>
@@ -49,7 +50,7 @@
 	%>
 		<tr>
 			<td><%=board.getBoardNo() %></td>
-			<td><a href='board.do?page=<%=paging.getPage() %>&bno=<%=board.getBoardNo() %>'><%=board.getTitle() %></a></td>
+			<td><a href='board.do?page=<%=paging.getPage() %>&bno=<%=board.getBoardNo() %>&searchCondition=<%=sc %>&keyword=<%=kw %>'><%=board.getTitle() %></a></td>
 			<td><%=board.getWriter() %></td>
 			<td><%=wdate %></td>
 			<td><%=board.getViewCnt() %></td>
