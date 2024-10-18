@@ -18,11 +18,14 @@ public class BoardControl implements Control {
 		// board.do -> 상세조회(bon) -> 조회 -> board.jsp 출력.
 		//http://localhost/FreeBoard/board.do?bno=1
 		String bno = req.getParameter("bno");
+		//페이지 받아오는 변수
+		String page = req.getParameter("page");
 		
 		BoardService svc = new BoardServiceImpl();
 		BoardVO board = svc.searchBoard(Integer.parseInt(bno));
 		
 		req.setAttribute("boardvo", board);
+		req.setAttribute("page", page);
 		
 		req.getRequestDispatcher("WEB-INF/jsp/board.jsp").forward(req, resp);
 

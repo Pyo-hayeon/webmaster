@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 
 import com.yedam.common.DataSource;
+import com.yedam.common.SearchDTO;
 import com.yedam.mapper.BoardMapper;
 import com.yedam.vo.BoardVO;
 
@@ -61,12 +62,17 @@ public class AppTest {
 //			System.out.println(bvo2.toString());
 //		}
 		
+		//검색 조건 가져오기
+		SearchDTO search = new SearchDTO();
+		//search.setKeyword("user01");
+		//search.setSearchCondition("W");
+		search.setPage(1);
+		
 		//페이징 테스트
-		List<BoardVO> list = mapper.listWithPage(2);
+		List<BoardVO> list = mapper.listWithPage(search);
 		for(BoardVO bvo2 : list) {
 			System.out.println(bvo2.toString());
 		}
-		
 		
 	}//main
 }//AppTest

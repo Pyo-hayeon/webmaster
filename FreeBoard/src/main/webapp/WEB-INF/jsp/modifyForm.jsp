@@ -7,6 +7,7 @@
 <%
 	String msg = (String) request.getAttribute("msg");
 	BoardVO board = (BoardVO) request.getAttribute("boardvo");
+	String pg = (String) request.getAttribute("page");
 %>
 <% if(msg != null) { %>
 <p style="color: red;"><%=msg %></p>
@@ -14,6 +15,7 @@
 
 <form action="modifyBoard.do" method="post">
 	<input type="hidden" value="<%=board.getBoardNo() %>" id="bno" name="bno">
+	<input type="hidden" value="<%=pg %>" id="page" name="page">
 	<table class="table">
 		<tr>
 			<th>글번호</th><td><%=board.getBoardNo() %></td>

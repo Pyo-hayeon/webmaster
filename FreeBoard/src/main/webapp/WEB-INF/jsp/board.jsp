@@ -9,6 +9,7 @@
 	BoardVO bvo = (BoardVO) request.getAttribute("boardvo");
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd HH:mm:ss");
 	String wdate = sdf.format(bvo.getWriteDate());
+	String pg = (String) request.getAttribute("page");
 %>
 <form action="modifyBoard.do" method="get">
 	<input type="hidden" value="<%=bvo.getBoardNo() %>" id="bno" name="bno">
@@ -48,7 +49,7 @@
 <script>
 	document.querySelector('input[value="수정"]')//
 	.addEventListener('click', function(e) {
-		location.href = 'modifyBoard.do?bno=<%=bvo.getBoardNo() %>';
+		location.href = 'modifyBoard.do?page=<%=pg %>&bno=<%=bvo.getBoardNo() %>';
 	});
 	document.querySelector('input[value="삭제"]')//
 	.addEventListener('click', function(e) {

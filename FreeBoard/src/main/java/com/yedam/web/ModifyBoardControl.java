@@ -20,6 +20,9 @@ public class ModifyBoardControl implements Control {
 		
 		String bno = req.getParameter("bno"); //겟 또는 포스트로 값을 받아옴 (폼에 값을 히든으로 박아놔야함 :수정항목이아니라서)
 		
+		//페이지 값 받기
+		String page = req.getParameter("page");
+		
 		BoardService svc = new BoardServiceImpl();
 		
 		if(req.getMethod().equals("GET")) {
@@ -27,6 +30,7 @@ public class ModifyBoardControl implements Control {
 			BoardVO board = svc.searchBoard(Integer.parseInt(bno));
 			
 			req.setAttribute("boardvo", board);
+			req.setAttribute("page", page);
 			req.getRequestDispatcher("WEB-INF/jsp/modifyForm.jsp").forward(req, resp);	
 			
 		}else if(req.getMethod().equals("POST")) {
@@ -41,7 +45,7 @@ public class ModifyBoardControl implements Control {
 			
 			if(svc.modifyBoard(board)) {
 				//정상 등록 - 목록으로 이동
-				resp.sendRedirect("boardlist.do");
+				resp.sendRedirect("boardlist.do?page="+page);
 			}else {
 				//등록 실패 
 				board = svc.searchBoard(Integer.parseInt(bno));

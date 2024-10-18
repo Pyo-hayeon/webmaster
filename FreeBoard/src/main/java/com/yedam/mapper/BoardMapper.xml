@@ -24,6 +24,19 @@
 		    from (
 		        select *
 		        from tbl_board
+		        <where>
+			        <choose>
+			        	<when test="searchCondition == 'T'.toString()">
+					        title like '%' ||#{keyword}||'%'
+			        	</when>
+			        	<when test="searchCondition == 'W'.toString()">
+			        		writer like '%' ||#{keyword}||'%'
+			        	</when>
+			        	<when test="searchCondition == 'TW'.toString()">
+			        		(title like '%' ||#{keyword}||'%') or (writer like '%' ||#{keyword}||'%')
+			        	</when>
+			        </choose>
+		        </where>
 		        order by board_no desc
 		        ) a
 		    ) b
@@ -73,4 +86,22 @@
 		set view_cnt = view_cnt + 1
 		where board_no = #{boardNo}
 	</update>
+	
+	<!-- 페이징 카운터 -->
+	<select id="selectCount" resultType="int">
+		select count(1) from tbl_board
+		<where>
+	        <choose>
+	        	<when test="searchCondition == 'T'.toString()">
+			        title like '%' ||#{keyword}||'%'
+	        	</when>
+	        	<when test="searchCondition == 'W'.toString()">
+	        		writer like '%' ||#{keyword}||'%'
+	        	</when>
+	        	<when test="searchCondition == 'TW'.toString()">
+	        		(title like '%' ||#{keyword}||'%') or (writer like '%' ||#{keyword}||'%')
+	        	</when>
+	        </choose>
+        </where>
+	</select>
 </mapper>
