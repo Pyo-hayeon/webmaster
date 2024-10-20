@@ -1,39 +1,23 @@
-<%@page import="com.yedam.common.SearchDTO"%>
-<%@page import="com.yedam.common.PageDTO"%>
-<%@page import="java.text.SimpleDateFormat"%>
-<%@page import="com.yedam.vo.BoardVO"%>
-<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %> <!-- 날짜 담당 포멧 -->
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>  <!-- 날짜 포멧 -->
+<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/xml" prefix="x" %>
 <jsp:include page="../includes/header.jsp"></jsp:include>
 <h3>글목록(boardList.jsp)</h3>
-<%
-	//게시글 객체
-	List<BoardVO> list = (List<BoardVO>) request.getAttribute("boardList");
-	//날짜 포멧
-	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-	//페이징 정보
-	PageDTO paging = (PageDTO) request.getAttribute("page");
-	//검색 데이터 받아오기
-	String sc = (String) request.getAttribute("searchCondition");
-	String kw = (String) request.getAttribute("keyword");
-	kw = kw == null ? "" : kw;
-%>
 <!-- 검색조건 넣기 -->
 <form action="boardlist.do" class="row g-3">
-  <div class="col-md-3">
-    <select name="searchCondition" class="form-select">
-      <option selected value="">선택하세요.</option>
-      <option value="T" ${searchCondition != null && searchCondition == "T" ? "selected" : "" }>제목</option>
-      <option value="W" <%=(sc != null && sc.equals("W") ? "selected" : "") %>>작성자</option>
-      <option value="TW" <%=(sc != null && sc.equals("WT") ? "selected" : "") %>>제목 & 작성자</option>
-    </select>
-  </div>
+	<div class="col-md-3">
+	<select name="searchCondition" class="form-select">
+		<option selected value="">선택하세요.</option>
+		<option value="T" <c:if test="${searchCondition != null && searchCondition == 'T'}">selected</c:if>>제목</option>
+		<option value="W" <c:if test="${searchCondition != null && searchCondition == 'W'}">selected</c:if>>작성자</option>
+		<option value="TW" <c:if test="${searchCondition != null && searchCondition == 'TW'}">selected</c:if>>제목 & 작성자</option>
+	</select>
+	</div>
   <div class="col-md-4">
-    <input type="text" class="form-control" name="keyword" value='<%=kw %>'>
+    <input type="text" class="form-control" name="keyword" value='${keyword }'>
   </div>
   <div class="col-md-5">
     <button type="submit" class="btn btn-primary">조 회</button>

@@ -1,12 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>  <!-- 날짜 포멧 -->
+<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/xml" prefix="x" %>
 <jsp:include page="../includes/header.jsp"></jsp:include>
-<%
-	String msg = (String) request.getAttribute("msg");
-%>
-<% if(msg != null) { %>
-<p style="color: red;"><%=msg %></p>
-<% } %>
+<c:if test="msg != null)">
+	<p style="color: red;">${msg }</p>
+</c:if>
 <h3>로그인(loginForm.jsp)</h3>
 <form action="loginForm.do" method="post">
 	<table class="table">
