@@ -48,7 +48,8 @@ public class BoardListControl implements Control {
 		req.setAttribute("page", new PageDTO(Integer.parseInt(page), totalCnt));
 		
 		//jsp페이지
-		req.getRequestDispatcher("WEB-INF/jsp/boardlist.jsp").forward(req, resp);
+		//req.getRequestDispatcher("WEB-INF/jsp/boardlist.jsp").forward(req, resp);
+		req.getRequestDispatcher("board/boardlist.tiles").forward(req, resp);
 		
 	}
 

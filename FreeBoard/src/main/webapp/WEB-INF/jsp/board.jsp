@@ -17,7 +17,9 @@
 		</tr>
 		<tr>
 			<th>제목</th>
-			<td colspan="3">${boardvo.title }</td>
+			<td>${boardvo.title }</td>
+			<th>작성자</th>
+			<td>${boardvo.writer }</td>
 		</tr>
 		<tr>
 			<th>내용</th>
@@ -25,10 +27,12 @@
 				<textarea readonly rows="4" cols="30" class="form-control">${boardvo.content }</textarea>
 			</td>
 		</tr>
+		<c:if test="${boardvo.img!=null }">
 		<tr>
-			<th>작성자</th>
-			<td colspan="3">${boardvo.writer }</td>
+			<th>이미지</th>
+			<td colspan="3"><img src="images/${boardvo.img }" width="150px"></td>
 		</tr>
+		</c:if>
 		<tr>
 			<th>작성일시</th>
 			<td colspan="3"><fmt:formatDate value="${boardvo.writeDate }" pattern="yyyy-MM-dd HH:mm:ss"/></td>

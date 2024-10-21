@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.yedam.common.Control;
 
 //뭐가 들어와도 상관없고 끝값이 .do 로 끝나면 해당 클래스를 실행하겠따는 의미
-@WebServlet("*.do")
+//@WebServlet("*.do")
 public class FrontController extends HttpServlet{
 	//필드
 	//url객체 담고 뒤에는 컨트럴 객체 담을꺼임

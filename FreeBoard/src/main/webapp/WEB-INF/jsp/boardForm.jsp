@@ -13,7 +13,7 @@
 	<p style="color: red;">${msg }</p>
 </c:if>
 
-<form action="addBoard.do" method="post">
+<form action="addBoard.do" method="post" enctype="multipart/form-data">
 	<input type="hidden" name="writer" id="writer" value="${sessionScope.logId}">
 	<table class="table">
 		<tr>
@@ -21,6 +21,9 @@
 		</tr>
 		<tr>
 			<th>내용</th><td><textarea rows="3" cols="30" name="content" id="content" class="form-control"></textarea> </td>
+		</tr>
+		<tr>
+			<th>이미지</th><td><input type="file" name="img" class="form-control"></td>
 		</tr>
 		<tr>
 			<th>작성자</th><td>${sessionScope.logId}</td>

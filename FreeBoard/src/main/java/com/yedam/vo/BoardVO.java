@@ -14,5 +14,6 @@ public class BoardVO {
 	private int viewCnt;	//언더바 표기로 자동 변경됨
 	private Date writeDate;	//언더바 표기로 자동 변경됨
 	private Date updateDate;	//언더바 표기로 자동 변경됨
+	private String img;	//이미지 저장 객체
 	
 }

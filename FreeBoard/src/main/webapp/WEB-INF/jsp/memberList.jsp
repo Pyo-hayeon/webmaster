@@ -4,7 +4,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>  <!-- 날짜 포멧 -->
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/xml" prefix="x" %>
-<jsp:include page="../includes/header.jsp"></jsp:include>
+
 <h3>회원목록</h3>
 <table class="table">
 	<c:forEach var="member" items="${memberList }">
@@ -15,4 +15,3 @@
 		</tr>
 	</c:forEach>
 </table>
-<jsp:include page="../includes/footer.jsp"></jsp:include>

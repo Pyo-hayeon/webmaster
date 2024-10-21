@@ -4,7 +4,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>  <!-- 날짜 포멧 -->
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/xml" prefix="x" %>
-<jsp:include page="../includes/header.jsp"></jsp:include>
+
 <h3>글목록(boardList.jsp)</h3>
 <!-- 검색조건 넣기 -->
 <form action="boardlist.do" class="row g-3">
@@ -81,4 +81,3 @@
 
   </ul>
 </nav>
-<jsp:include page="../includes/footer.jsp"></jsp:include>
