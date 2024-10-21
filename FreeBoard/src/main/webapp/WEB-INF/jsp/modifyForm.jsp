@@ -4,7 +4,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>  <!-- 날짜 포멧 -->
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/xml" prefix="x" %>
-<jsp:include page="../includes/header.jsp"></jsp:include>
 <h3>수정 화면(modifyForm.jsp)</h3>
 <!-- http://localhost/FreeBoard/modifyBoard.do?bno=1 -->
 <c:if test="msg != null)">
@@ -51,7 +50,6 @@
 	</table>
 </form>
 
-<jsp:include page="../includes/footer.jsp"></jsp:include>
 <script>
 	document.querySelector('input[value="취소"]')//
 	.addEventListener('click', function(e) {

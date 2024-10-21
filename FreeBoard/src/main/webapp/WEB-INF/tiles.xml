@@ -32,4 +32,9 @@
   	<put-attribute name="title" value="타일스 admin/*.tiles" />
   	<put-attribute name="body" value="/WEB-INF/jsp/{1}.jsp" />
   </definition>
+  
+  <definition name="WILDCARD:*/*" extends="user.home">
+  	<put-attribute name="title" value="일반사용자 자바스크립트연스" />
+  	<put-attribute name="body" value="/WEB-INF/jsp/{1}/{2}.jsp" />
+  </definition>
 </tiles-definitions>

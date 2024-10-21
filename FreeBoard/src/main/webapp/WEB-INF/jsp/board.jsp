@@ -4,7 +4,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>  <!-- 날짜 포멧 -->
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/xml" prefix="x" %>
-<jsp:include page="../includes/header.jsp"></jsp:include>
 <h3>상세페이지(board.jsp)</h3>
 	<form action="modifyBoard.do" method="get">
 	<input type="hidden" value="${boardvo.boardNo }" id="bno" name="bno">
@@ -45,7 +44,6 @@
 		</tr>
 	</table>
 </form>
-<jsp:include page="../includes/footer.jsp"></jsp:include>
 
 <script>
 	document.querySelector('input[value="수정"]')//
