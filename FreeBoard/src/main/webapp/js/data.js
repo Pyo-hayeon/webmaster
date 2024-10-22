@@ -1,0 +1,23 @@
+/**
+ * 
+ */
+const data = `[{"id":1,"first_name":"Faith","last_name":"Featherstonhalgh","email":"ffeatherstonhalgh0@huffingtonpost.com","gender":"Genderqueer","salary":4626},
+{"id":2,"first_name":"Gualterio","last_name":"Begent","email":"gbegent1@nhs.uk","gender":"Male","salary":4195},
+{"id":3,"first_name":"Lion","last_name":"Beany","email":"lbeany2@dagondesign.com","gender":"Genderqueer","salary":7228},
+{"id":4,"first_name":"Edeline","last_name":"Burkman","email":"eburkman3@vk.com","gender":"Polygender","salary":6613},
+{"id":5,"first_name":"Stefan","last_name":"Geary","email":"sgeary4@ning.com","gender":"Male","salary":5194},
+{"id":6,"first_name":"Lind","last_name":"Dealy","email":"ldealy5@bbc.co.uk","gender":"Female","salary":6853},
+{"id":7,"first_name":"Yorke","last_name":"Aynold","email":"yaynold6@google.nl","gender":"Male","salary":5580},
+{"id":8,"first_name":"Alexandra","last_name":"Vigus","email":"avigus7@businessweek.com","gender":"Female","salary":6610},
+{"id":9,"first_name":"Bink","last_name":"Alstead","email":"balstead8@cargocollective.com","gender":"Male","salary":9706},
+{"id":10,"first_name":"Lynde","last_name":"Empson","email":"lempson9@smh.com.au","gender":"Bigender","salary":6481},
+{"id":11,"first_name":"Chiquita","last_name":"Tomblett","email":"ctombletta@bloglines.com","gender":"Female","salary":9343},
+{"id":12,"first_name":"Conney","last_name":"Espinho","email":"cespinhob@nationalgeographic.com","gender":"Male","salary":3509},
+{"id":13,"first_name":"Urson","last_name":"Betteson","email":"ubettesonc@noaa.gov","gender":"Male","salary":5064},
+{"id":14,"first_name":"Marthe","last_name":"McNamee","email":"mmcnameed@yellowpages.com","gender":"Female","salary":3665},
+{"id":15,"first_name":"Sherlocke","last_name":"Prosser","email":"sprossere@spiegel.de","gender":"Male","salary":5855},
+{"id":16,"first_name":"Roanna","last_name":"Skypp","email":"rskyppf@jimdo.com","gender":"Female","salary":6215},
+{"id":17,"first_name":"Padriac","last_name":"Strank","email":"pstrankg@rambler.ru","gender":"Male","salary":9967},
+{"id":18,"first_name":"Karlotta","last_name":"Connachan","email":"kconnachanh@tinypic.com","gender":"Female","salary":9292},
+{"id":19,"first_name":"Crosby","last_name":"Bastick","email":"cbasticki@buzzfeed.com","gender":"Male","salary":4616},
+{"id":20,"first_name":"Marcile","last_name":"Amdohr","email":"mamdohrj@skype.com","gender":"Female","salary":6964}]`;

@@ -6,12 +6,26 @@ import java.util.Map;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.yedam.common.Control;
+import com.yedam.control.JavaScriptCont;
+import com.yedam.control.board.AddBoardControl;
+import com.yedam.control.board.AddBoardForm;
+import com.yedam.control.board.BoardControl;
+import com.yedam.control.board.BoardListControl;
+import com.yedam.control.board.ModifyBoardControl;
+import com.yedam.control.board.deleteBoardControl;
+import com.yedam.control.member.AddMemberCont;
+import com.yedam.control.member.DelMemberCont;
+import com.yedam.control.member.LogOutControl;
+import com.yedam.control.member.LoginControl;
+import com.yedam.control.member.MemberAddControl;
+import com.yedam.control.member.MemberAddFormControl;
+import com.yedam.control.member.MemberListControl;
+import com.yedam.control.member.memberJsonCont;
 
 //뭐가 들어와도 상관없고 끝값이 .do 로 끝나면 해당 클래스를 실행하겠따는 의미
 //@WebServlet("*.do")
@@ -48,6 +62,10 @@ public class FrontController extends HttpServlet{
 		
 		//자바스크립트 연습
 		map.put("/javascript.do", new JavaScriptCont());
+		// json 형태로 string 데이터 만드는곳 
+		map.put("/memberJson.do", new memberJsonCont());
+		map.put("/addMemberJson.do", new AddMemberCont());
+		map.put("/removeMemberJson.do", new DelMemberCont());
 	}
 	
 	@Override
