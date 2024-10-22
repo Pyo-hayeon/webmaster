@@ -6,15 +6,34 @@ import org.apache.ibatis.session.SqlSession;
 
 import com.yedam.common.DataSource;
 import com.yedam.common.SearchDTO;
-import com.yedam.mapper.BoardMapper;
+import com.yedam.mapper.ReplyMapper;
+import com.yedam.service.ReplyService;
+import com.yedam.service.ReplyServiceImpl;
 import com.yedam.vo.BoardVO;
+import com.yedam.vo.ReplyVO;
 
 //기능들 정상적으로 됐는지 확인하는 페이지 [테스트 페이지]
 public class AppTest {
 	public static void main(String[] args) {
 		//sql 실행 명령문
-		SqlSession sqlSession = DataSource.getInstance().openSession(true);
-		BoardMapper mapper = sqlSession.getMapper(BoardMapper.class);
+		//SqlSession sqlSession = DataSource.getInstance().openSession(true);
+		ReplyService svc = new ReplyServiceImpl();
+		
+		ReplyVO rv1 = new ReplyVO();
+		rv1.setBoardNo(361);
+		rv1.setReply("aaa");
+		rv1.setReplyer("user01");
+		svc.registerReply(rv1);
+		
+		
+		List<ReplyVO> list =  svc.replyList(361);
+		for(ReplyVO rv : list) {
+			System.out.println(rv.toString());
+		}
+		
+		svc.removeReply(42);
+		
+		svc.replyList(361).forEach(reply -> System.out.println(reply));
 		
 		//인서트 테스트
 //		BoardVO bvo = new BoardVO();
@@ -63,16 +82,16 @@ public class AppTest {
 //		}
 		
 		//검색 조건 가져오기
-		SearchDTO search = new SearchDTO();
+		//SearchDTO search = new SearchDTO();
 		//search.setKeyword("user01");
 		//search.setSearchCondition("W");
-		search.setPage(1);
+		//search.setPage(1);
 		
 		//페이징 테스트
-		List<BoardVO> list = mapper.listWithPage(search);
-		for(BoardVO bvo2 : list) {
-			System.out.println(bvo2.toString());
-		}
+//		List<BoardVO> list = mapper.listWithPage(search);
+//		for(BoardVO bvo2 : list) {
+//			System.out.println(bvo2.toString());
+//		}
 		
 	}//main
 }//AppTest

@@ -26,6 +26,8 @@ import com.yedam.control.member.MemberAddControl;
 import com.yedam.control.member.MemberAddFormControl;
 import com.yedam.control.member.MemberListControl;
 import com.yedam.control.member.memberJsonCont;
+import com.yedam.control.reply.DelReplyCont;
+import com.yedam.control.reply.ReplyListCont;
 
 //뭐가 들어와도 상관없고 끝값이 .do 로 끝나면 해당 클래스를 실행하겠따는 의미
 //@WebServlet("*.do")
@@ -66,6 +68,11 @@ public class FrontController extends HttpServlet{
 		map.put("/memberJson.do", new memberJsonCont());
 		map.put("/addMemberJson.do", new AddMemberCont());
 		map.put("/removeMemberJson.do", new DelMemberCont());
+		
+		//댓글
+		map.put("/replyList.do", new ReplyListCont());
+		map.put(".removeReplyJson.do", new DelReplyCont());
+		
 	}
 	
 	@Override

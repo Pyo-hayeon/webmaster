@@ -41,6 +41,13 @@ xhtp.onload = function(){
 	//console.log(obj);
 	data = obj;
 	console.log('1',data);
+	for(let i=0; i<data.length; i++){
+		console.log(data[i]);	//여기에 넣어야 값이나옴
+	}
 }
 //이게 먼저 출력됨 (비동기방식이라서)
 console.log('2',data);
+
+for(let i=0; i<data.length; i++){
+	console.log(data[i]);	//순서때문에 데이터가 없어서 값이 안나옴
+}
