@@ -14,6 +14,7 @@ public class DelReplyCont implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
 		String bno = req.getParameter("bno");
 		ReplyService svc = new ReplyServiceImpl();
 		if(svc.removeReply(Integer.parseInt(bno))) {

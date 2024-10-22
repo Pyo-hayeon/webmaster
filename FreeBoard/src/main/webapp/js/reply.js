@@ -1,18 +1,27 @@
 /**
  * reply.js
- * replyService.js에서 만들었던 메소드들 활용
+ * replyService.js에서 만들었던 메소드를 호출해서 사용
  */
 //svc.showMsg('hello');	//이렇게하면 콘솔 리플라이서비스에 값이 달되어 출력됨
-svc.rlist(361	//bno parm
-	,function(result){
-		console.log(result);
-		//목록출력하면됨
+
+//현재 도메인의 파라메터를 당겨온다
+const urlParams = new URLSearchParams(window.location.search);
+const bno = urlParams.get('bno');
+
+/*
+//.then(resolve => resolve.json()) 는 객체자체에서 처리됨
+svc.rlist(bno	// fetch('replyList.do?bno='+bno)
+	,function(result){			//.then(successFnc)
 		makeList(result);
-	}//successFnc)
-	,function(err){
+	}							//.then(successFnc)
+	,function(err){				//.catch(errorFnc)
 		console.log('요기',err);
-	}//errorFnc
+	}
 )
+*/
+// => 간소화하면 이렇게됨
+svc.rlist(bno, makeList, err => console.log('요기', err));
+
 
 //배열받아서 [] 전체 목록 만들어줌
 function makeList(obj = []){
@@ -25,7 +34,7 @@ function makeList(obj = []){
 
 //객체받아서 {}
 function makeRow(obj = {}){
-	let fields = ['replyNo', 'reply', 'replyer'];
+	let fields = ['replyNo', 'reply', 'replyer', 'replyDate'];
 	let tr = document.createElement('tr');
 	//멤버아이디를 tr요소에 넣어놨음 이려면 dataset.id 로 읽어올수있음 data-name => dataset.name 로 읽을수 있음
 	tr.setAttribute('data-bno', obj.replyNo);
@@ -53,7 +62,6 @@ function makeRow(obj = {}){
 function deleteRowFnc(e){
 	//td의 첫번째 요소의 값
 	console.dir(e.target.parentElement.parentElement.firstElementChild.innerText);
-	
 	//data-id 로 선언한값
 	console.dir(e.target.parentElement.parentElement.dataset.bno);
 	
@@ -64,7 +72,6 @@ function deleteRowFnc(e){
 		if(result.retCode == 'OK'){
 			alert('성공.');
 			e.target.parentElement.parentElement.remove();
-			
 		}else if(result.retCode == 'FAIL'){
 			alert('처리중 에러가 발생.');
 		}

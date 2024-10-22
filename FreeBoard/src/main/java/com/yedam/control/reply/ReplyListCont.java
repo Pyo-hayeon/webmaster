@@ -1,6 +1,7 @@
 package com.yedam.control.reply;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -29,10 +30,5 @@ public class ReplyListCont implements Control {
 		String json = gson.toJson(list);	//자바객체를 제이슨 문자열로 만들어주는 기능
 		
 		resp.getWriter().print(json);
-		
-		//이건 서블릿 형태
-		//req.setAttribute("reply", reply);
-		//req.getRequestDispatcher("").forward(req, resp);
 	}
-
 }

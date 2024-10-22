@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.yedam.common.Control;
 import com.yedam.control.JavaScriptCont;
+import com.yedam.control.JavaScriptCont2;
 import com.yedam.control.board.AddBoardControl;
 import com.yedam.control.board.AddBoardForm;
 import com.yedam.control.board.BoardControl;
@@ -64,6 +65,8 @@ public class FrontController extends HttpServlet{
 		
 		//자바스크립트 연습
 		map.put("/javascript.do", new JavaScriptCont());
+		map.put("/javascript2.do", new JavaScriptCont2());
+		
 		// json 형태로 string 데이터 만드는곳 
 		map.put("/memberJson.do", new memberJsonCont());
 		map.put("/addMemberJson.do", new AddMemberCont());
@@ -71,7 +74,7 @@ public class FrontController extends HttpServlet{
 		
 		//댓글
 		map.put("/replyList.do", new ReplyListCont());
-		map.put(".removeReplyJson.do", new DelReplyCont());
+		map.put("/removeReplyJson.do", new DelReplyCont());
 		
 	}
 	
