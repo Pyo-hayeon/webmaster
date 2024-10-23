@@ -21,9 +21,9 @@
                 <div class="sidebar-heading border-bottom bg-light">Start Bootstrap</div>
                 <div class="list-group list-group-flush">
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="boardlist.do">글목록</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">글등록</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">로그인</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">로그아웃</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="addBoardForm.do">글등록</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="loginForm.do">로그인</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="logOut.do">로그아웃</a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="javascript.do">자바스크립트 연습</a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">회원가입</a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Status</a>

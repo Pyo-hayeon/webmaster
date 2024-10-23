@@ -27,7 +27,9 @@ import com.yedam.control.member.MemberAddControl;
 import com.yedam.control.member.MemberAddFormControl;
 import com.yedam.control.member.MemberListControl;
 import com.yedam.control.member.memberJsonCont;
-import com.yedam.control.reply.DelReplyCont;
+import com.yedam.control.reply.AddReplyCont;
+import com.yedam.control.reply.RemoveReplyCont;
+import com.yedam.control.reply.ReplyCountCont;
 import com.yedam.control.reply.ReplyListCont;
 
 //뭐가 들어와도 상관없고 끝값이 .do 로 끝나면 해당 클래스를 실행하겠따는 의미
@@ -74,7 +76,9 @@ public class FrontController extends HttpServlet{
 		
 		//댓글
 		map.put("/replyList.do", new ReplyListCont());
-		map.put("/removeReplyJson.do", new DelReplyCont());
+		map.put("/removeReply.do", new RemoveReplyCont());
+		map.put("/addReply.do", new AddReplyCont());
+		map.put("/replyCount.do", new ReplyCountCont());
 		
 	}
 	

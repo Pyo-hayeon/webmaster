@@ -10,14 +10,14 @@ import com.yedam.common.Control;
 import com.yedam.service.ReplyService;
 import com.yedam.service.ReplyServiceImpl;
 
-public class DelReplyCont implements Control {
+public class RemoveReplyCont implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		String bno = req.getParameter("bno");
+		String rno = req.getParameter("rno");
 		ReplyService svc = new ReplyServiceImpl();
-		if(svc.removeReply(Integer.parseInt(bno))) {
+		if(svc.removeReply(Integer.parseInt(rno))) {
 			resp.getWriter().print("{\"retCode\":\"OK\"}");
 		}else {
 			resp.getWriter().print("{\"retCode\":\"FAIL\"}");				

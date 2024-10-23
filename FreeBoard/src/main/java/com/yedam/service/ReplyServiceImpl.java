@@ -17,6 +17,12 @@ public class ReplyServiceImpl implements ReplyService{
 	public List<ReplyVO> replyList(int boardNo) {
 		return mapper.selectList(boardNo);
 	}
+	
+	@Override
+	public List<ReplyVO> selectListPaging(int boardNo, int page) {
+		return mapper.selectListPaging(boardNo, page);
+	}
+
 
 	@Override
 	public boolean registerReply(ReplyVO reply) {
@@ -33,4 +39,10 @@ public class ReplyServiceImpl implements ReplyService{
 		return mapper.selectReply(replyNo);
 	}
 
+	@Override
+	public int replyCount(int boardNo) {
+		return mapper.selectCount(boardNo);
+	}
+
+	
 }
