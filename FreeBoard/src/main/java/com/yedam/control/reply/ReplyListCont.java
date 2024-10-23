@@ -29,7 +29,7 @@ public class ReplyListCont implements Control {
 		//JSON 데이터 라이브러리로 간편하게 만들끼
 		Gson gson = new GsonBuilder().create();	//Gson 쓰겠다는 말 객체 생성
 		String json = gson.toJson(list);	//자바객체를 제이슨 문자열로 만들어주는 기능
-		
+		//{"replyNo":60,"reply":"댓글1","replyer":"user01","boardNo":265,"replyDate":"Oct 24, 2024, 12:05:34 AM"}
 		resp.getWriter().print(json);
 	}
 }

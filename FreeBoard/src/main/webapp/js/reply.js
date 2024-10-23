@@ -17,6 +17,7 @@
 //넘겨줄 페이지 번호
 let page = 1;
 
+//★3 댓글 추가 호출
 //댓글 등록 버튼
 document.querySelector('#addReply').addEventListener('click', addReplyHandlerFnc);
 //댓글 이벤트 핸들러
@@ -46,7 +47,7 @@ function addReplyHandlerFnc(e){
 }
 
 
-
+//★1-1 댓글 목록 DOM
 //댓글 리스팅!!
 //댓글정보 한건있으면 <li>.....</li> 함수생성.
 function makeLi(rvo ={replyNo, reply, replyer}){
@@ -69,7 +70,8 @@ function makeLi(rvo ={replyNo, reply, replyer}){
 }
 
 
-
+//★4-2 페이지 [<<][1][2][3][4][5][>>] 클릭할경우 페이지번호전달, 댓글리스팅, 댓글총갯수
+//★4 댓글 페이징 기능 활성화 ( 댓글 총 갯수 가져옴 )		
 // pagination a 클랙이벤트.
 //페이지 클릭했을때 해당페이지 리스팅해주는거
 function linkMove(){
@@ -85,10 +87,13 @@ function linkMove(){
 	})
 }
 
+
+//★4 댓글 페이징 기능 활성화 ( 댓글 총 갯수 가져옴 )
 //페이지 목록을 출력하는 함수
 svc.getReplyCount(bno, createPageList, err => console.log(err));
 
-//createPageList();
+
+//★4-1 페이징 카운팅 및 페이징버튼 그리기
 function createPageList(result){	//2page
 	//console.log(result.totalCount);
 	//전체페이지 가져오는거
@@ -139,6 +144,7 @@ function createPageList(result){	//2page
 showList();
 
 //추가 페이징 기능 호출시 그려줌
+ //★1 댓글 목록 호출
 function showList(){
 	//출력목록을 화면에서 지우고
 	document.querySelectorAll('div.reply div.content li').forEach((li, idx) => {
@@ -164,7 +170,7 @@ function showList(){
 	)
 }
 
-
+//★2 댓글 삭제 호출
 //댓글을 삭제하는 함수
 function deleteRow(e){
 	console.log(e);

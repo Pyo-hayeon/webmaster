@@ -75,10 +75,10 @@ public class FrontController extends HttpServlet{
 		map.put("/removeMemberJson.do", new DelMemberCont());
 		
 		//댓글
-		map.put("/replyList.do", new ReplyListCont());
-		map.put("/removeReply.do", new RemoveReplyCont());
-		map.put("/addReply.do", new AddReplyCont());
-		map.put("/replyCount.do", new ReplyCountCont());
+		map.put("/replyList.do", new ReplyListCont());	//댓글 리스팅
+		map.put("/removeReply.do", new RemoveReplyCont());	//댓글 삭제
+		map.put("/addReply.do", new AddReplyCont());	//댓글 추가
+		map.put("/replyCount.do", new ReplyCountCont());	//총 댓글수
 		
 	}
 	
@@ -92,9 +92,5 @@ public class FrontController extends HttpServlet{
 		
 		Control control = map.get(page);
 		control.exec(req, resp);
-		
-	}
-	
-	
-	
+	}	
 }

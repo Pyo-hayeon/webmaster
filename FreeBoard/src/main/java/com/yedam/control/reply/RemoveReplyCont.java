@@ -24,5 +24,4 @@ public class RemoveReplyCont implements Control {
 		}
 
 	}
-
 }

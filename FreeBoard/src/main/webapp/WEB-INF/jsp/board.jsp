@@ -4,7 +4,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>  <!-- 날짜 포멧 -->
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/xml" prefix="x" %>
-
 <style>
 	.reply span {
 		display: inline-block;
@@ -53,6 +52,7 @@
 		</tr>
 	</table>
 </form>
+
 <!-- 댓글관련 -->
 <div class="container reply">
 	<!-- 댓글 등록. -->
@@ -82,13 +82,15 @@
 			<li class="page-item"><a class="page-link" href="#">1</a></li>
 			<li class="page-item"><a class="page-link" href="#">2</a></li>
 			<li class="page-item"><a class="page-link" href="#">3</a></li>
-			<li class="page-item"><a class="page-link" href="#"
-				aria-label="Next"> <span aria-hidden="true">&raquo;</span>
-			</a></li>
+			<li class="page-item">
+				<a class="page-link" href="#" aria-label="Next"> 
+					<span aria-hidden="true">&raquo;</span>
+				</a>
+			</li>
 		</ul>
 	</nav>
 </div>
-
+<!-- 댓글관련 끝 -->
 
 <script>
 	//jsp에서 변수 당길수 있으니까 이걸로 출력하려고함
