@@ -11,8 +11,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.yedam.common.Control;
+import com.yedam.control.ChartControl;
+import com.yedam.control.CountSelectableCont;
+import com.yedam.control.CountWriterCont;
+import com.yedam.control.InsertSelectablecont;
 import com.yedam.control.JavaScriptCont;
 import com.yedam.control.JavaScriptCont2;
+import com.yedam.control.SelectableCont;
+import com.yedam.control.delSelectableCont;
 import com.yedam.control.board.AddBoardControl;
 import com.yedam.control.board.AddBoardForm;
 import com.yedam.control.board.BoardControl;
@@ -80,6 +86,15 @@ public class FrontController extends HttpServlet{
 		map.put("/addReply.do", new AddReplyCont());	//댓글 추가
 		map.put("/replyCount.do", new ReplyCountCont());	//총 댓글수
 		
+		//챠트
+		map.put("/chart.do",  new ChartControl());	//chart view
+		map.put("/countByWriter.do", new CountWriterCont());
+		
+		//캘린더
+		map.put("/selectable.do", new SelectableCont());
+		map.put("/countBySelectable.do", new CountSelectableCont());
+		map.put("/insertSelectable.do", new InsertSelectablecont());
+		map.put("/delSelectable.do", new delSelectableCont());
 	}
 	
 	@Override

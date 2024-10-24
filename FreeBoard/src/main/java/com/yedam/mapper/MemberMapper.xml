@@ -50,4 +50,20 @@
 		where member_id = #{id}
 		and password = #{pw}
 	</select>
+	
+	<!-- 스케쥴 -->
+	<select id="countBySelectable" resultType="hashmap">
+		select title as "title", start_date as "start", end_date as "end"
+		from tbl_event
+	</select>
+	<insert id="insertSelectable" parameterType="member">
+		insert into tbl_event (title, start_date, end_date)
+		values(#{title}, #{startDate}, #{endDate})
+	</insert>
+	<delete id="deleteSelectable" parameterType="member">
+		delete from tbl_event
+		where title = #{title}
+		and start_date = #{startDate}
+		<!-- and end_date = #{endDate} -->
+	</delete>
 </mapper>

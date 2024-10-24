@@ -1,6 +1,7 @@
 package com.yedam.service;
 
 import java.util.List;
+import java.util.Map;
 
 import com.yedam.vo.MemberVO;
 
@@ -14,4 +15,9 @@ public interface MemberService {
 	
 	//로그인
 	MemberVO loginCheck(String id, String pw);
+	
+	//캘린더
+	List<Map<String, Object>> countBySelectable();
+	boolean addSelectable(MemberVO member);
+	boolean deleteSelectable(MemberVO member);
 }

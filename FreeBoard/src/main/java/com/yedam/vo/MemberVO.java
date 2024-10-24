@@ -2,13 +2,9 @@ package com.yedam.vo;
 
 import java.util.Date;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.Data;
 
-@Getter
-@Setter
-@ToString
+@Data
 public class MemberVO {
 	
 	private String memberId;
@@ -17,4 +13,8 @@ public class MemberVO {
 	private String phone;
 	private String responsibility;
 	private Date creationDate;
+	
+	private String title;
+	private String startDate;
+	private String endDate;
 }

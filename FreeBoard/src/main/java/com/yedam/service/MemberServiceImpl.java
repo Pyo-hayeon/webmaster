@@ -1,6 +1,7 @@
 package com.yedam.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 
@@ -35,6 +36,21 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public MemberVO loginCheck(String id, String pw) {
 		return mapper.loginMember(id, pw);
+	}
+
+	@Override
+	public List<Map<String, Object>> countBySelectable() {
+		return mapper.countBySelectable();
+	}
+
+	@Override
+	public boolean addSelectable(MemberVO member) {
+		return mapper.insertSelectable(member)==1;
+	}
+
+	@Override
+	public boolean deleteSelectable(MemberVO member) {
+		return mapper.deleteSelectable(member)==1;
 	}
 
 }
