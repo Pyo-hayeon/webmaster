@@ -6,9 +6,38 @@
 <meta charset='utf-8' />
 </head>
 <body>
+	<!-- 캘린더 -->
 	<div id='calendar'></div>
+	
+	<!-- Button trigger modal -->
+	<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+	  모달버튼
+	</button>
+	
+	<!-- Modal -->
+	<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h1 class="modal-title fs-5" id="exampleModalLabel">내용을 입력하라!</h1>
+	        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+	      </div>
+	      <div class="modal-body">
+	        <!-- title, startStr, endStr -->
+	        타이틀: <input type="text" id="title"><br>
+	        시작일시: <input type="date" onchange="startChange(event)" id="start"><br>
+	        종료일시: <input type="date" onchange="endChange(event)" id="end"><br>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+	        <button type="button" class="btn btn-primary" onclick="modalSave()">Save changes</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
 </body>
 </html>
+<script src="js/calendarModal.js"></script>
 <script src='dist/index.global.js'></script>
 <script>
 var formattedDate;
@@ -21,7 +50,9 @@ function today(){
 	formattedDate = year + '-' + month + '-' + day;
 }
 
-let calendar;
+
+let calendar = null;
+let modalArg = null;	//arg 공유할 목적
 											//async 이게 들어감
 document.addEventListener('DOMContentLoaded', async function() {
 	var calendarEl = document.getElementById('calendar');
@@ -37,7 +68,7 @@ document.addEventListener('DOMContentLoaded', async function() {
 													//	})
 													//.catch(err => console.log(err));
 	
-	var calendar = new FullCalendar.Calendar(calendarEl, {
+	calendar = new FullCalendar.Calendar(calendarEl, {
 		headerToolbar : {
 			left : 'prev,next today',
 			center : 'title',
@@ -48,16 +79,15 @@ document.addEventListener('DOMContentLoaded', async function() {
 		selectable : true,
 		selectMirror : true,
 		select : function(arg) {
+			//console.log(arg);
+			modalShow(arg);
+			/*
 			var title = prompt('Event Title:');
 			if (title) {
 				var start = arg.startStr;
 				start = start.split('+')[0];
-				//console.log(start);
-				
 				var end = arg.endStr;
 				end = end.split('+')[0];
-				//console.log(end);
-				
 				fetch('insertSelectable.do?title='+title+'&start='+start+'&end='+end)
 				.then(resolve=>{return resolve.json()})
 				.then(result=>{console.log(result)})
@@ -70,11 +100,16 @@ document.addEventListener('DOMContentLoaded', async function() {
 					allDay : arg.allDay
 				})
 			}
+			*/
 			calendar.unselect()
 		},
 		eventClick : function(arg) {
 			if (confirm('스케쥴을 지우시겠습니까?')) {
-				arg.event.remove();
+				//arg.event.remove();
+				
+				//console.log(arg);
+				//console.log(arg.event.endStr);
+				//console.log(arg.event.startStr);
 				
 				var title = arg.event._def.title;
 				//console.log(title);
@@ -89,7 +124,14 @@ document.addEventListener('DOMContentLoaded', async function() {
 				
 				fetch('delSelectable.do?title='+title+'&start='+start)//+'&end='+end
 				.then(resolve=>{return resolve.json()})
-				.then(result=>{console.log(result)})
+				.then(result=>{
+					console.log(result);
+					if(result.retCode == 'OK') {
+						arg.event.remove();
+					}else if(result.retCode == 'FAIL') {
+						alert('등록 실패!!');
+					}
+				})
 				.catch(err=>{console.log(err)})
 			}
 		},
@@ -100,7 +142,6 @@ document.addEventListener('DOMContentLoaded', async function() {
 
 		calendar.render();
 	});
-
 </script>
 <style>
 body {

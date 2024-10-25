@@ -9,6 +9,8 @@
 	<settings>
 	<setting name="mapUnderscoreToCamelCase" value="true"/>
 	<setting name="jdbcTypeForNull" value="NULL"/>	<!-- sql데이터 없으면 null 넣어줌 -->
+	<setting name="cacheEnabled" value="false"/><!-- 캐쉬 없애는거 -->
+	<setting name="localCacheScope" value="STATEMENT"/>
 	</settings>
 	
 	<typeAliases>

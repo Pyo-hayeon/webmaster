@@ -95,6 +95,9 @@ public class FrontController extends HttpServlet{
 		map.put("/countBySelectable.do", new CountSelectableCont());
 		map.put("/insertSelectable.do", new InsertSelectablecont());
 		map.put("/delSelectable.do", new delSelectableCont());
+		
+		map.put("/exe.do", new execont());
+		map.put("/exe2.do", new execont2());
 	}
 	
 	@Override

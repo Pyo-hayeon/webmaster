@@ -30,7 +30,7 @@ public class delSelectableCont implements Control {
 		member.setStartDate(start);
 		member.setEndDate(end);
 		
-		System.out.println(member.toString());
+		//System.out.println(member.toString());
 		
 		Map<String, Object> result = new HashMap<>();
 		if(svc.deleteSelectable(member)) {
