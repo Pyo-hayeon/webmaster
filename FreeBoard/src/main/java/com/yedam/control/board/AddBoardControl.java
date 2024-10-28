@@ -55,7 +55,8 @@ public class AddBoardControl implements Control {
 			//e.printStackTrace();
 			//비정상등록 - 다시 글등록하는곳으로 이동
 			req.setAttribute("msg", "등록하는중 오류가 발생했습니다");
-			req.getRequestDispatcher("WEB-INF/jsp/boardForm.jsp").forward(req, resp);
+			//req.getRequestDispatcher("WEB-INF/jsp/boardForm.jsp").forward(req, resp);
+			req.getRequestDispatcher("board/boardForm.tiles").forward(req, resp);
 		}
 	}
 

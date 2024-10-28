@@ -116,5 +116,8 @@
 <!-- 구현한 기능을 재정의해서 활성화 시킴 -->
 <!-- <script src="js/reply.js"></script> -->
 
-<script src="js/replyService2.js"></script> <!-- 기능을 여기서 구현 -->
-<script src="js/reply2.js"></script><!-- 구현한 기능을 재정의해서 활성화 시킴 -->
+<!-- <script src="js/replyService2.js"></script> --> <!-- 기능을 여기서 구현 -->
+<!-- <script src="js/reply2.js"></script> --> <!-- 구현한 기능을 재정의해서 활성화 시킴 -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="js/jreply.js"></script>

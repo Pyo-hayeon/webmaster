@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+	$(function() {
+		$("button:eq(0)").on("click", function() {
+			//★★★★★★★★★ append가 새로 만들어서 엎는게 아니라 있는걸 옮겨버리는거
+			//왜 새로 생성됐다라고생각한이유는 항상 만들어서 엎었기때문에
+			$('select:eq(1)').append($('select:eq(0) option:selected'));
+			/*
+			let value1 = $("select:eq(0)").val();
+			for(let i=0; i<value1.length; i++){
+				$("select:eq(0)").find("option:contains(" + value1[i] + ")").remove();
+				$("select:eq(1)").append("<option>"+value1[i]+"</option>");			
+			}
+			*/
+		});
+	});
+	$(function() {
+		$("button:eq(1)").on("click", function() {
+			let value = $("select:eq(1)").val();
+			for(let i=0; i<value.length; i++){
+				$("select:eq(1)").find("option:contains(" + value[i] + ")").remove();
+				$("select:eq(0)").append("<option>"+value[i]+"</option>");
+			}
+		});
+	});
+	
+	$(function() {
+		//$("#abc").appendTo(".test");
+		$(".test").append($("#abc"));
+	});
+</script>
+</head>
+
+<body>
+	<select multiple style="height: 150px">
+		<option>option1</option>
+		<option>option2</option>
+		<option>option3</option>
+		<option>option4</option>
+		<option>option5</option>
+	</select>
+	<button>+</button>
+	<button>-</button>
+	<select multiple style="height: 150px">
+		<option>option6</option>
+		<option>option7</option>
+		<option>option8</option>
+		<option>option9</option>
+		<option>option10</option>
+	</select>
+	
+	<div class="test">
+		<p>123</p>
+		<p id="abc">234</p>
+		<p>345</p>
+		<p>456</p>
+		<p>567</p>
+	</div>
+</body>
+
+</html>

@@ -29,6 +29,9 @@
 			if(d % 7 == 0){
 				td.style.color = 'blue';
 			}
+			if(d % 7 == 1){
+				td.style.color = 'red';
+			}
 			tr.appendChild(td);
 			if (d % 7 == 0) {
 				document.querySelector('#list').appendChild(tr);
