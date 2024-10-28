@@ -8,7 +8,6 @@
 	<title>jQuery Element Access</title>
 	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 	<script>
-		/*
 		$(function() {
 			$("button").on("click", function() {
 				// id가 "list"인 요소의 자손 요소 중에서 <li>요소를 모두 선택한 후에,
@@ -16,8 +15,8 @@
 				$("#list").find("li").eq(1).html("두 번째 아이템을 선택했어요!!");
 			});
 		});
-		*/
 		
+		/*
 		$(function(){
 			document.querySelector('button').addEventListener('click',function(e){
 				let list = document.querySelectorAll('li').forEach((item, idx)=>{
@@ -27,6 +26,7 @@
 				});
 			});
 		});
+		*/
 	</script>
 </head>
 
